@@ -9,7 +9,7 @@ class DataBaseHelper {
 
   Future<Database> get getDataBase async {
     if (_db != null) return _db!;
-    _db = await _initDB('task.db');
+    _db = await _initDB('task_manager.db');
     return _db!;
   }
 
@@ -23,9 +23,8 @@ class DataBaseHelper {
     await db.execute('''
       CREATE TABLE task (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title STRING,
-        text STRING,
-        isCompleted BOOL
+        title TEXT,
+        text TEXT
       )
     ''');
   }
